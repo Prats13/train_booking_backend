@@ -1,10 +1,8 @@
-// controllers/bookingController.js
 const Booking = require('../models/Booking');
 const Train = require('../models/Train');
 
 exports.bookSeat = async (req, res) => {
   try {
-    // Create a new booking and update available seats
     const { user_id, no_of_seats } = req.body;
     const { train_id } = req.params;
     const train = await Train.findById(train_id);
@@ -39,7 +37,6 @@ exports.bookSeat = async (req, res) => {
 
 exports.getBookingDetails = async (req, res) => {
   try {
-    // Retrieve booking details based on booking_id
     const { booking_id } = req.params;
     const booking = await Booking.findById(booking_id);
     if (!booking) {
